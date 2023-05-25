@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SlidesAI</title>
+    <script
+      src="https://kit.fontawesome.com/f8e49a6702.js"
+      crossorigin="anonymous"
+    ></script>
+    <base target="_top" />
+  </head>
+  <body
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins';
+      padding-top: 6%;
+    "
+  >
+    <div style="display: flex; flex-direction: column; width: 50%">
+      <p style="text-align: center; font-size: xx-large">
+        SlideAI: Automatic PPT Generator
+      </p>
+      <input
+        type="text"
+        id="title"
+        placeholder="Enter Project Title"
+        style="
+          display: flex;
+          align-items: center;
+          padding: 10px 15px;
+          border-radius: 5px;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          margin: 5px 0px;
+        "
+      />
+      <input
+        type="text"
+        id="description"
+        placeholder="Enter Project Description"
+        style="
+          display: flex;
+          align-items: center;
+          padding: 10px 15px;
+          border-radius: 5px;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          margin: 5px 0px;
+        "
+      />
+      <input
+        type="text"
+        id="authors"
+        placeholder="Enter Authors Name"
+        style="
+          display: flex;
+          align-items: center;
+          padding: 10px 15px;
+          border-radius: 5px;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          margin: 5px 0px;
+        "
+      />
+      <input
+        type="text"
+        id="logo"
+        placeholder="Enter Institute Logo"
+        style="
+          display: flex;
+          align-items: center;
+          padding: 10px 15px;
+          border-radius: 5px;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          margin: 5px 0px;
+        "
+      />
+      <input
+        type="text"
+        id="occasion"
+        placeholder="Enter Occasion"
+        style="
+          display: flex;
+          align-items: center;
+          padding: 10px 15px;
+          border-radius: 5px;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          margin: 5px 0px;
+        "
+      />
+      <input
+        type="color"
+        id="color"
+        placeholder="Enter Theme Color"
+        style="
+          width: 100%;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          padding: 10px 15px;
+          border-radius: 5px;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          margin: 5px 0px;
+        "
+      />
+
+      <button
+        id="addTextBtn"
+        style="
+          width: 100%;
+          padding: 10px;
+          border: none;
+          border-radius: 5px;
+          outline: none;
+          background-color: rgb(56, 56, 56);
+          color: white;
+          font-family: 'Poppins';
+          margin: 5px 0px;
+        "
+      >
+        Generate Presentation
+      </button>
+    </div>
+
+    <script>
+      document
+        .getElementById("addTextBtn")
+        .addEventListener("click", function () {
+          console.log("Button clicked!");
+          google.script.run.runn(
+            document.getElementById("title").value,
+            document.getElementById("description").value,
+            document.getElementById("color").value,
+            document.getElementById("authors").value,
+            document.getElementById("logo").value,
+            document.getElementById("occasion").value
+          );
+          alert("Your Presentation is being generated...");
+          // scheduleDownload();
+          document.getElementById("title").value = "";
+          document.getElementById("description").value = "";
+          document.getElementById("color").value = "";
+          document.getElementById("logo").value = "";
+          document.getElementById("occasion").value = "";
+          document.getElementById("authors").value = "";
+        });
+
+      function scheduleDownload() {
+        setTimeout(downloadSlides, 45000);
+      }
+
+      function downloadSlides() {
+        const downloadLink =
+          "https://docs.google.com/presentation/d/1ROXSzo28oiI8c6SSvsa1GXGruDkps9KpqlnoMqPLcQo/export/pptx";
+        window.location.href = downloadLink;
+      }
+    </script>
+  </body>
+</html>
