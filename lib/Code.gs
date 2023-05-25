@@ -689,7 +689,7 @@ function fetchImageUrl(image_text) {
   // }
   image_url = getImageUrlByKeywords(
     image_text,
-    "78de8f6ad97e4a56ab205e0b14876975"
+    BING_API_KEY
   );
   console.log(image_url);
   return image_url;
@@ -704,7 +704,7 @@ function getInfoHigh(prompt) {
       headers: {
         "Content-Type": "application/json",
         Authorization:
-          "Bearer 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",
+          OPENAI_KEY,
       },
       payload: JSON.stringify({
         prompt: prompt,
