@@ -1,97 +1,203 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>SlidesAI</title>
-    <script
-      src="https://kit.fontawesome.com/f8e49a6702.js"
-      crossorigin="anonymous"
-    ></script>
-    <base target="_top" />
-  </head>
-  <body
-    style="
+
+<head>
+  <title>SlidesAI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/f8e49a6702.js" crossorigin="anonymous"></script>
+  <base target="_top" />
+
+  <style>
+    @keyframes fadeInAnimation {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    body {
+      /* background-color: indianred; */
+      background: rgb(131, 58, 180);
+      background: linear-gradient(90deg,
+          rgba(131, 58, 180, 1) 18%,
+          rgba(205, 92, 92, 1) 78%,
+          rgba(205, 92, 92, 1) 100%);
+    }
+
+    .container {
+      align-items: center;
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      background-color: rgba(89, 31, 50, 0.75);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.125);
+    }
+
+    .heading {
+      color: rgb(252, 226, 192);
+      transition: all 0.2s ease-in-out;
+      animation: fadeInAnimation;
+      animation-duration: 0.7s;
+      animation-delay: 0.3s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }
+
+    input {
+      width: 80%;
+      margin: 2rem 0;
+    }
+
+    #title {
+      transition: all 0.4s ease-in-out;
+      animation: fadeInAnimation;
+      animation-duration: 0.7s;
+      animation-delay: 0.9s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }
+
+    #description {
+      transition: all 0.4s ease-in-out;
+      animation: fadeInAnimation;
+      animation-duration: 0.7s;
+      animation-delay: 1s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }
+
+    #authors {
+      transition: all 0.4s ease-in-out;
+      animation: fadeInAnimation;
+      animation-duration: 0.7s;
+      animation-delay: 1.2s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }
+
+    #logo {
+      transition: all 0.4s ease-in-out;
+      animation: fadeInAnimation;
+      animation-duration: 0.7s;
+      animation-delay: 1.4s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }
+
+    #occasion {
+      transition: all 0.4s ease-in-out;
+      animation: fadeInAnimation;
+      animation-duration: 0.7s;
+      animation-delay: 1.6s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }
+
+    #color {
+      transition: all 0.4s ease-in-out;
+      animation: fadeInAnimation;
+      animation-duration: 0.7s;
+      animation-delay: 1.8s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+    }
+
+    button {
+      transition: all 0.4s ease-in-out;
+      animation: fadeInAnimation;
+      animation-duration: 0.7s;
+      animation-delay: 2s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+      width: 85%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      background-color: rgb(56, 56, 56);
+      color: white;
+      font-family: "Poppins";
+      font-size: medium;
+      margin: 2rem 0;
+    }
+
+    button:hover {
+      width: 90%;
+      color: rgb(255, 255, 255);
+      font-size: large;
+      background: rgb(32, 156, 140);
+      background: linear-gradient(90deg,
+          rgb(60, 136, 139) 23%,
+          rgb(63, 93, 154) 55%,
+          rgb(43, 131, 148) 100%);
+    }
+  </style>
+</head>
+
+<body style="
       display: flex;
       justify-content: center;
       align-items: center;
       font-family: 'Poppins';
       padding-top: 6%;
-    "
-  >
-    <div style="display: flex; flex-direction: column; width: 50%">
-      <p style="text-align: center; font-size: xx-large">
-        SlideAI: Automatic PPT Generator
-      </p>
-      <input
-        type="text"
-        id="title"
-        placeholder="Enter Project Title"
-        style="
+    ">
+  <div class="container" style="display: flex; flex-direction: column; width: 50%">
+    <p class="heading" style="text-align: center; font-size: xx-large">
+      SlideAI: Automatic PPT Generator
+    </p>
+    <input type="text" id="title" placeholder="Enter Project Title" style="
           display: flex;
           align-items: center;
           padding: 10px 15px;
           border-radius: 5px;
           border: 1px solid rgba(0, 0, 0, 0.1);
           margin: 5px 0px;
-        "
-      />
-      <input
-        type="text"
-        id="description"
-        placeholder="Enter Project Description"
-        style="
+        " />
+    <input type="text" id="description" placeholder="Enter Project Description" style="
           display: flex;
           align-items: center;
           padding: 10px 15px;
           border-radius: 5px;
           border: 1px solid rgba(0, 0, 0, 0.1);
           margin: 5px 0px;
-        "
-      />
-      <input
-        type="text"
-        id="authors"
-        placeholder="Enter Authors Name"
-        style="
+        " />
+    <input type="text" id="authors" placeholder="Enter Authors Name" style="
           display: flex;
           align-items: center;
           padding: 10px 15px;
           border-radius: 5px;
           border: 1px solid rgba(0, 0, 0, 0.1);
           margin: 5px 0px;
-        "
-      />
-      <input
-        type="text"
-        id="logo"
-        placeholder="Enter Institute Logo"
-        style="
+        " />
+    <input type="text" id="logo" placeholder="Enter Institute Logo" style="
           display: flex;
           align-items: center;
           padding: 10px 15px;
           border-radius: 5px;
           border: 1px solid rgba(0, 0, 0, 0.1);
           margin: 5px 0px;
-        "
-      />
-      <input
-        type="text"
-        id="occasion"
-        placeholder="Enter Occasion"
-        style="
+        " />
+    <input type="text" id="occasion" placeholder="Enter Occasion" style="
           display: flex;
           align-items: center;
           padding: 10px 15px;
           border-radius: 5px;
           border: 1px solid rgba(0, 0, 0, 0.1);
           margin: 5px 0px;
-        "
-      />
-      <input
-        type="color"
-        id="color"
-        placeholder="Enter Theme Color"
-        style="
-          width: 100%;
+        " />
+    <input type="color" id="color" placeholder="Enter Theme Color" style="
+          width: 85%;
           height: 50px;
           display: flex;
           align-items: center;
@@ -99,13 +205,10 @@
           border-radius: 5px;
           border: 1px solid rgba(0, 0, 0, 0.1);
           margin: 5px 0px;
-        "
-      />
+        " />
 
-      <button
-        id="addTextBtn"
-        style="
-          width: 100%;
+    <!-- <button id="addTextBtn" style="
+          width: 90%;
           padding: 10px;
           border: none;
           border-radius: 5px;
@@ -113,45 +216,46 @@
           background-color: rgb(56, 56, 56);
           color: white;
           font-family: 'Poppins';
-          margin: 5px 0px;
-        "
-      >
-        Generate Presentation
-      </button>
-    </div>
+          margin: 5px 2rem;
+        " type="button">
+      Generate Presentation
+    </button> -->
+    <button id="addTextBtn" style="font-family: 'Poppins';" type="submit">Generate Presentation</button>
+  </div>
 
-    <script>
-      document
-        .getElementById("addTextBtn")
-        .addEventListener("click", function () {
-          console.log("Button clicked!");
-          google.script.run.runn(
-            document.getElementById("title").value,
-            document.getElementById("description").value,
-            document.getElementById("color").value,
-            document.getElementById("authors").value,
-            document.getElementById("logo").value,
-            document.getElementById("occasion").value
-          );
-          alert("Your Presentation is being generated...");
-          // scheduleDownload();
-          document.getElementById("title").value = "";
-          document.getElementById("description").value = "";
-          document.getElementById("color").value = "";
-          document.getElementById("logo").value = "";
-          document.getElementById("occasion").value = "";
-          document.getElementById("authors").value = "";
-        });
+  <script>
+    document
+      .getElementById("addTextBtn")
+      .addEventListener("click", function () {
+        console.log("Button clicked!");
+        google.script.run.runn(
+          document.getElementById("title").value,
+          document.getElementById("description").value,
+          document.getElementById("color").value,
+          document.getElementById("authors").value,
+          document.getElementById("logo").value,
+          document.getElementById("occasion").value
+        );
+        alert("Your Presentation is being generated...");
+        // scheduleDownload();
+        document.getElementById("title").value = "";
+        document.getElementById("description").value = "";
+        document.getElementById("color").value = "";
+        document.getElementById("logo").value = "";
+        document.getElementById("occasion").value = "";
+        document.getElementById("authors").value = "";
+      });
 
-      function scheduleDownload() {
-        setTimeout(downloadSlides, 45000);
-      }
+    function scheduleDownload() {
+      setTimeout(downloadSlides, 45000);
+    }
 
-      function downloadSlides() {
-        const downloadLink =
-          "https://docs.google.com/presentation/d/1ROXSzo28oiI8c6SSvsa1GXGruDkps9KpqlnoMqPLcQo/export/pptx";
-        window.location.href = downloadLink;
-      }
-    </script>
-  </body>
+    function downloadSlides() {
+      const downloadLink =
+        "https://docs.google.com/presentation/d/1ROXSzo28oiI8c6SSvsa1GXGruDkps9KpqlnoMqPLcQo/export/pptx";
+      window.location.href = downloadLink;
+    }
+  </script>
+</body>
+
 </html>
