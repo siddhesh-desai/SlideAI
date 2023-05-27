@@ -163,6 +163,7 @@ Thanks go to these wonderful people:
 - [Ashish Fargade](https://github.com/ashishfargade/)
 - [Pradyun Gayakwad](https://github.com/Pglol03/)
 - [Prathmesh Haridas](https://github.com/pjharidas/)
+- [Jayant Singh](https://github.com/jayantsingh-22)
 
 [contributors-shield]: https://img.shields.io/github/contributors/siddhesh-desai/SlideAI.svg?style=for-the-badge
 [contributors-url]: https://github.com/siddhesh-desai/SlideAI/graphs/contributors
