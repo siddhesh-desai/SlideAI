@@ -164,6 +164,7 @@ Thanks go to these wonderful people:
 - [Pradyun Gayakwad](https://github.com/Pglol03/)
 - [Prathmesh Haridas](https://github.com/pjharidas/)
 - [Jayant Singh](https://github.com/jayantsingh-22)
+- [Kanchan Yugal Daryanani](https://github.com/Kanchan253/)
 
 [contributors-shield]: https://img.shields.io/github/contributors/siddhesh-desai/SlideAI.svg?style=for-the-badge
 [contributors-url]: https://github.com/siddhesh-desai/SlideAI/graphs/contributors
