@@ -1,0 +1,199 @@
+<!-- Please choose one of the UI options , either UI one: index.html or UI option 2: index1.html.  -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SlidesAI</title>
+    <script
+      src="https://kit.fontawesome.com/f8e49a6702.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <style>
+      /* Variable declarations */
+      :root {
+        --bg: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-2210775-jpeg.jpg");
+        --form-bg: #f8f4e5;
+        --form-shadow: #ffa580;
+        --form-primary-highlight: #95a4ff;
+        --form-secondary-highlight: #ffc8ff;
+        --font-size: 14pt;
+        --font-face: "Fjalla One";
+        --font-color: #2a293e;
+      }
+
+      /* Global styles */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: var(--bg) center center no-repeat;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .contact-us {
+        background: var(--form-bg);
+        padding: 50px 100px;
+        border: 2px solid rgba(0, 0, 0, 1);
+        box-shadow: 15px 15px 1px var(--form-shadow),
+          15px 15px 1px 2px rgba(0, 0, 0, 1);
+        width: 500px;
+        height: 550px;
+      }
+
+      h2 {
+        font-family: var(--font-face);
+        font-size: 24pt;
+        color: var(--font-color);
+        margin-bottom: 5%;
+      }
+
+      @keyframes typewriter {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      .input__box {
+        margin-bottom: calc(var(--font-size) * 2);
+      }
+
+      input {
+        display: block;
+        width: 100%;
+        font-size: var(--font-size);
+        line-height: calc(var(--font-size) * 2);
+        font-family: var(--font-face);
+        margin-bottom: calc(var(--font-size) * 2);
+        border: none;
+        border-bottom: 5px solid rgba(0, 0, 0, 1);
+        background: var(--form-bg);
+        min-width: 250px;
+        padding-left: 5px;
+        outline: none;
+        color: rgba(0, 0, 0, 1);
+      }
+
+      input:focus {
+        border-bottom: 5px solid var(--form-shadow);
+      }
+
+      button {
+        display: block;
+        margin: 0 auto;
+        line-height: calc(var(--font-size) * 2);
+        padding: 0 20px;
+        background: var(--form-shadow);
+        letter-spacing: 2px;
+        transition: 0.2s all ease-in-out;
+        outline: none;
+        border: 1px solid rgba(0, 0, 0, 1);
+        box-shadow: 3px 3px 1px 1px var(--form-primary-highlight),
+          3px 3px 1px 2px rgba(0, 0, 0, 1);
+      }
+
+      button:hover {
+        background: rgba(0, 0, 0, 1);
+        color: white;
+        border: 1px solid rgba(0, 0, 0, 1);
+      }
+
+      ::selection {
+        background: var(--form-secondary-highlight);
+      }
+
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus {
+        border-bottom: 5px solid var(--form-primary-highlight);
+        -webkit-text-fill-color: var(--font-color);
+        -webkit-box-shadow: 0 0 0px 1000px var(--form-bg) inset;
+        transition: background-color 5000s ease-in-out 0s;
+      }
+    </style>
+    <base target="_top" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="contact-us">
+        <h2>SlideAI: Automatic PPT Generator</h2>
+
+        <div class="input__box">
+          <input type="text" id="title" placeholder="Enter Project Title" />
+        </div>
+        <div class="input__box">
+          <input
+            type="text"
+            id="description"
+            placeholder="Enter Project Description"
+          />
+        </div>
+        <div class="input__box">
+          <input type="text" id="authors" placeholder="Enter Authors Name" />
+        </div>
+        <div class="input__box">
+          <input type="text" id="logo" placeholder="Enter Institute Logo" />
+        </div>
+        <div class="input__box">
+          <input type="text" id="occasion" placeholder="Enter Occasion" />
+        </div>
+        <div class="input__box">
+          <input type="color" id="color" placeholder="Enter Theme Color" />
+        </div>
+        <div class="input__box">
+          <button id="addTextBtn">Generate Presentation</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("addTextBtn")
+        .addEventListener("click", function () {
+          console.log("Button clicked!");
+          google.script.run.runn(
+            document.getElementById("title").value,
+            document.getElementById("description").value,
+            document.getElementById("color").value,
+            document.getElementById("authors").value,
+            document.getElementById("logo").value,
+            document.getElementById("occasion").value
+          );
+          alert("Your Presentation is being generated...");
+          // scheduleDownload();
+          document.getElementById("title").value = "";
+          document.getElementById("description").value = "";
+          document.getElementById("color").value = "";
+          document.getElementById("logo").value = "";
+          document.getElementById("occasion").value = "";
+          document.getElementById("authors").value = "";
+        });
+
+      function scheduleDownload() {
+        setTimeout(downloadSlides, 45000);
+      }
+
+      function downloadSlides() {
+        const downloadLink =
+          "https://docs.google.com/presentation/d/1ROXSzo28oiI8c6SSvsa1GXGruDkps9KpqlnoMqPLcQo/export/pptx";
+        window.location.href = downloadLink;
+      }
+    </script>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 function doGet() {
-  return HtmlService.createHtmlOutputFromFile("index");
+  return HtmlService.createHtmlOutputFromFile("index1");
 }
 
 var generatedUrls = [];
@@ -9,8 +9,6 @@ var list = [];
 PRESENTATION_ID = "ENTER_YOUR_PRESENTATION_ID";
 OPENAI_KEY = "Bearer ENTER_YOUR_OPENAI_KEY";
 BING_API_KEY = "ENTER_YOUR_BING_SEARCH_API_KEY";
-
-
 
 //Creating a new presentation
 function createPresentation() {
@@ -51,7 +49,6 @@ function runn(
   institute_logo,
   occasion
 ) {
-
   //deleteAllSlides(PRESENTATION_ID);
   // const PRESENTATION_ID = createPresentation();
   // console.log(generateSlidesLink(PRESENTATION_ID));
@@ -537,8 +534,7 @@ function getInfo(prompt) {
       method: "post",
       headers: {
         "Content-Type": "application/json",
-        Authorization:
-          OPENAI_KEY,
+        Authorization: OPENAI_KEY,
       },
       payload: JSON.stringify({
         prompt: prompt,
@@ -687,10 +683,7 @@ function fetchImageUrl(image_text) {
   //     keywords = getInfoHigh(prompt);
   //     generatedUrls.push(keywords);
   // }
-  image_url = getImageUrlByKeywords(
-    image_text,
-    BING_API_KEY
-  );
+  image_url = getImageUrlByKeywords(image_text, BING_API_KEY);
   console.log(image_url);
   return image_url;
 }
@@ -703,8 +696,7 @@ function getInfoHigh(prompt) {
       method: "post",
       headers: {
         "Content-Type": "application/json",
-        Authorization:
-          OPENAI_KEY,
+        Authorization: OPENAI_KEY,
       },
       payload: JSON.stringify({
         prompt: prompt,
@@ -777,10 +769,7 @@ function createSlide(presentationId, num) {
 }
 
 //Fetching image url from Bing API
-function getImageUrlByKeywords(
-  keywords,
-  apiKey = BING_API_KEY
-) {
+function getImageUrlByKeywords(keywords, apiKey = BING_API_KEY) {
   var query = encodeURIComponent(keywords);
   var url =
     "https://api.bing.microsoft.com/v7.0/images/search?q=" +
@@ -808,7 +797,7 @@ function getImageUrlByKeywords(
 function generateKeyWords(content) {
   jsonn = getInfo(
     "Understand and Generate 10 tools and computer technologies separated by comma related to the below project - " +
-    content
+      content
   );
   console.log(jsonn);
   list = csvToList(jsonn);
